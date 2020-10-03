@@ -36,7 +36,8 @@ from matplotlib.dates import (HOURS_PER_DAY, MIN_PER_HOUR, SEC_PER_MIN,
                               MONTHS_PER_YEAR, DAYS_PER_WEEK,
                               SEC_PER_HOUR, SEC_PER_DAY,
                               num2date, rrulewrapper, YearLocator,
-                              MicrosecondLocator, warnings)
+                              MicrosecondLocator)
+# MicrosecondLocator, warnings)
 
 from dateutil.relativedelta import relativedelta
 import numpy as np
@@ -180,11 +181,12 @@ class AutoDateLocator(ADLocator):
             else:
                 # We went through the whole loop without breaking, default to
                 # the last interval in the list and raise a warning
-                warnings.warn('AutoDateLocator was unable to pick an '
-                              'appropriate interval for this date range. '
-                              'It may be necessary to add an interval value '
-                              "to the AutoDateLocator's intervald dictionary."
-                              ' Defaulting to {0}.'.format(interval))
+                # warnings.warn('AutoDateLocator was unable to pick an '
+                print('AutoDateLocator was unable to pick an '
+                      'appropriate interval for this date range. '
+                      'It may be necessary to add an interval value '
+                      "to the AutoDateLocator's intervald dictionary."
+                      ' Defaulting to {0}.'.format(interval))
 
             # Set some parameters as appropriate
             self._freq = freq
